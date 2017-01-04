@@ -21,6 +21,17 @@ public class InterfaceGr {
 		menu.add(opt1);
 		menu.add(opt2);
 		
+		//Creation des elements dans le menu
+		JMenuItem opt1cmd1 = new JMenuItem("Ouvrir");
+		JMenuItem opt1cmd2 = new JMenuItem("Enregistrer");
+		JMenuItem opt1cmd3 = new JMenuItem("Quitter");
+		JMenuItem opt2cmd1 = new JMenuItem("A Propos");
+		
+		opt1.add(opt1cmd1);
+		opt1.add(opt1cmd2);
+		opt1.add(opt1cmd3);
+		opt2.add(opt2cmd1);
+		
 		//Ajout de la barre de menu au bon endroit
 		fenetre.setJMenuBar(menu);
 		
