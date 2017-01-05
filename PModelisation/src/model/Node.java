@@ -6,10 +6,17 @@ public abstract class Node {
 	
 	private ArrayList <Node> enfants;
 	
-	abstract public Node getValue();
-	abstract public Node setValue();
+	public abstract Double getValue();
+	public abstract ArrayList<Point> getList();
+	
+	//abstract public Node setValue();
+	abstract public void setValue(Double value);
+	abstract public void setList(ArrayList<Point> p);
+	////abstract public void addPoint(Point p);
+	
     abstract public boolean estVide();
-    abstract public Node racine();
+
+    
     abstract public String toString();
 
     
@@ -23,3 +30,6 @@ public abstract class Node {
     
     
 }
+
+//abstract public Node racine();
+//abstract public Node getValue();
