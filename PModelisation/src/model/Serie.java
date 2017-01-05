@@ -9,5 +9,18 @@ public class Serie extends Node {
 		tableauPoint = new ArrayList<>();
 		
 	}
+	
+
+	@Override
+	Node getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	Node setValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
