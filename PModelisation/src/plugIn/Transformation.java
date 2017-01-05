@@ -1,6 +1,8 @@
 package plugIn;
 
+import model.Node;
+
 public interface Transformation
 {
-	public Arbre transformer(Arbre arg);
+	public Node transformer();
 }
