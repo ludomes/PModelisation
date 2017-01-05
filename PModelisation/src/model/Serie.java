@@ -7,7 +7,6 @@ public class Serie extends Node {
 	
 	Serie () {
 		tableauPoint = new ArrayList<>();
-		
 	}
 	
 
@@ -19,6 +18,26 @@ public class Serie extends Node {
 
 	@Override
 	Node setValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean estVide() {
+		return tableauPoint.isEmpty();
+	}
+
+
+	@Override
+	public Node racine() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String toString() {
 		// TODO Auto-generated method stub
 		return null;
 	}
