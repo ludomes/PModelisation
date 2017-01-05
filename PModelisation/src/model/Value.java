@@ -1,5 +1,5 @@
 package model;
 
-public class Value extends Node {
+public class Value extends Arbre {
 
 }
