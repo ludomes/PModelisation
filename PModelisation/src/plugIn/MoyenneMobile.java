@@ -36,4 +36,9 @@ public class MoyenneMobile implements Module
 		return null;
 	}
 	
+	public String getName()
+	{
+		return null;
+	}
+
 }

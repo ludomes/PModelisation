@@ -11,4 +11,9 @@ public class LissageExponentielSimple implements Module
 		return null;
 	}
 
+	public String getName()
+	{
+		return null;
+	}
+
 }

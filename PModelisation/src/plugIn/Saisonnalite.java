@@ -11,4 +11,9 @@ public class Saisonnalite implements Module
 		return null;
 	}
 
+	public String getName()
+	{
+		return null;
+	}
+
 }

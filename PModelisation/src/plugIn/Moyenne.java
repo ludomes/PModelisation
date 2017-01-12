@@ -10,4 +10,9 @@ public class Moyenne implements Module
 		return null;
 	}
 	
+	public String getName()
+	{
+		return null;
+	}
+
 }

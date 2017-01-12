@@ -10,5 +10,10 @@ public class LissageExponentielDouble implements Module
 	{
 		return null;
 	}
+	
+	public String getName()
+	{
+		return null;
+	}
 
 }

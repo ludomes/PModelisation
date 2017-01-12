@@ -8,5 +8,5 @@ public interface Module
 	
 	//public JPanel getPanel();
 	
-	//public String getName();
+	public String getName();
 }
