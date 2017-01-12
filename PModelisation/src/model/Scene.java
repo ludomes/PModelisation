@@ -2,9 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
-public abstract class Node {
+public abstract class Scene {
 	
-	private ArrayList <Node> enfants;
+	private ArrayList <Scene> enfants;
 	
 	public abstract Double getValue();
 	public abstract ArrayList<Point> getList();

@@ -1,18 +1,18 @@
 package plugIn;
 
-import model.Node;
+import model.Scene;
 
 public class RegressionLineaire implements Transformation
 {
-	private Node n;
+	private Scene n;
 	
-	public RegressionLineaire(/* parametres inconnus*/ Node n)
+	public RegressionLineaire(/* parametres inconnus*/ Scene n)
 	{
 		this.n = n;
 	}
 	
 	@Override
-	public Node transformer()
+	public Scene transformer()
 	{
 		return null;
 	}

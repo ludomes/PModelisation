@@ -1,8 +1,8 @@
 package plugIn;
 
-import model.Node;
+import model.Scene;
 
 public interface Transformation extends Module
 {
-	public Node transformer();
+	public Scene transformer();
 }

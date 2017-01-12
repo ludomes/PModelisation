@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Serie extends Node {
+public class Serie extends Scene {
 	private ArrayList<Point> tableauPoint;
 	
 	public Serie()

@@ -1,14 +1,14 @@
 package plugIn;
 
-import model.Node;
+import model.Scene;
 
 public class MoyenneMobile implements Transformation
 {
 	private int argp;
 	private double[] argv;
-	private Node n;
+	private Scene n;
 	
-	public MoyenneMobile(int argp, double[] argv, Node n)
+	public MoyenneMobile(int argp, double[] argv, Scene n)
 	{
 		this.argp = argp;
 		this.argv = argv;
@@ -16,7 +16,7 @@ public class MoyenneMobile implements Transformation
 	}
 	
 	@Override
-	public Node transformer()
+	public Scene transformer()
 	{
 		/*
 		  	set tableau resultat

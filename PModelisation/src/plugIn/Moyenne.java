@@ -1,11 +1,11 @@
 package plugIn;
 
-import model.Node;
+import model.Scene;
 
 public class Moyenne implements Transformation
 {
 	@Override
-	public Node transformer()
+	public Scene transformer()
 	{
 		return null;
 	}
