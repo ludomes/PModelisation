@@ -2,7 +2,7 @@ package plugIn;
 
 import model.Scene;
 
-public interface Transformation extends Module
+public interface Transformation
 {
 	public Scene transformer();
 }
