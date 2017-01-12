@@ -4,28 +4,42 @@ import java.util.ArrayList;
 
 public abstract class Scene {
 	
-	private ArrayList <Scene> enfants;
+	private Scene etapesPrec;
 	
-	public abstract Double getValue();
-	public abstract ArrayList<Point> getList();
+	/*
+	 *  Renvoi les données
+	 *  Si c'est une série : renvoi null à getValue()
+	 *  Si c'est une Value : renvoi null à getList()
+	 */
+
+	abstract public Double getValue();		
+	abstract public ArrayList<Point> getList();
 	
 	//
 	abstract public void setValue(Double value);
 	abstract public void setList(ArrayList<Point> p);
 	
+	/*
+	 * Indique si l'object est vide;
+	 */
     abstract public boolean estVide();
 
     
     abstract public String toString();
-
     
-    public boolean estUneFeuille() {
-        return this.enfants.isEmpty();
-    }
-    
-    public int nombreEnfants () {
-    	return this.enfants.size();
-    }
+    /*
+     * Liste les étapes pour obtenir l'historique 
+     */
+     public Scene getEtapes() {
+		return etapesPrec;
+    	 
+     }
      
-    
+     public void setEtapes (Scene uneScene) {
+    	 etapesPrec = uneScene;
+     }
+     
+     public String listEtapes() {
+    	 return null;
+     }
 }
