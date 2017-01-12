@@ -2,8 +2,6 @@ package plugIn;
 
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
-
 public class Contexte
 {
 	ArrayList<Object> liste;
@@ -12,9 +10,5 @@ public class Contexte
 	{
 		
 	}
-	
-	public void add(JPanel panel)
-	{
-		
-	}
+
 }
