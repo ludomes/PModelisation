@@ -16,5 +16,5 @@ public class RegressionLineaire implements Transformation
 	{
 		return null;
 	}
-
+	
 }
