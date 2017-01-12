@@ -2,7 +2,7 @@ package plugIn;
 
 import model.Scene;
 
-public class LissageExponentielSimple implements Transformation
+public class LissageExponentielSimple implements Module
 {
 	
 	@Override

@@ -2,7 +2,7 @@ package plugIn;
 
 import model.Scene;
 
-public class Moyenne implements Transformation
+public class Moyenne implements Module
 {
 	@Override
 	public Scene transformer()

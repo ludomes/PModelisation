@@ -2,18 +2,8 @@ package plugIn;
 
 import model.Scene;
 
-public class MoyenneMobile implements Transformation
+public class MoyenneMobile implements Module
 {
-	private int argp;
-	private double[] argv;
-	private Scene n;
-	
-	public MoyenneMobile(int argp, double[] argv, Scene n)
-	{
-		this.argp = argp;
-		this.argv = argv;
-		this.n = n;
-	}
 	
 	@Override
 	public Scene transformer()

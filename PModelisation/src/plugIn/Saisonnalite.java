@@ -2,7 +2,7 @@ package plugIn;
 
 import model.Scene;
 
-public class Saisonnalite implements Transformation
+public class Saisonnalite implements Module
 {
 
 	@Override
