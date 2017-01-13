@@ -5,14 +5,27 @@ import java.util.ArrayList;
 public class Serie extends Scene {
 	private ArrayList<Point> tableauPoint;
 	
+	
 	public Serie()
 	{
 		tableauPoint = new ArrayList<>();
+		setLibelle ("");
 	}
 	
-	public Serie(ArrayList<Point> tableauPoint)
+	public Serie(ArrayList<Point> tableauPoint, String libelle)
 	{
 		this.tableauPoint = tableauPoint;
+		setLibelle(libelle);
+	}
+	
+	/*
+	 * Constructeur avec une chaine de carractère au format :
+	 * 		"date, libelle, valeur"
+	 * Exemple : 
+	 * 		"12:03; null; 1,243"
+	 */
+	public Serie(String uneSerie) {
+		
 	}
 
 	@Override
@@ -39,35 +52,16 @@ public class Serie extends Scene {
 		this.tableauPoint = p;
 		
 	}
+	
 
 	//methodes inutiles a serie
 	@Override
-	public Double getValue()	{	return null;	}
-	@Override
-	public void setValue(Double value)	{}
-}
-
-
-
-/*
-@Override
-public Node getValue() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-	@Override
-	public Node setValue() {
-		// TODO Auto-generated method stub
+	public Double getValue()	{
 		return null;
 	}
-
-
+	
 	@Override
-	public Node racine() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setValue(Double value)	{
+		
 	}
-
-
-*/
+}

@@ -1,10 +1,19 @@
 package model;
 
+/**
+ * Classe abstraite pour la définition d'une série ou d'une valeur
+ * @author Ludovic Messuve  <ludovic.messuve@etudiant.@univ-lille1.fr>
+ * @author Rabah
+ * @author Florantin
+ * 
+ */
+
 import java.util.ArrayList;
 
 public abstract class Scene {
 	
 	private Scene etapesPrec;
+	private String libelle;
 	
 	/*
 	 *  Renvoi les données
@@ -28,11 +37,21 @@ public abstract class Scene {
     abstract public String toString();
     
     /*
+     * Getter Setter pour le libelle
+     */
+    public void setLibelle (String unLibelle){
+    	this.libelle = unLibelle;
+    }
+    
+    public String getLibelle (){
+    	return libelle;
+    }
+    
+    /*
      * Liste les étapes pour obtenir l'historique 
      */
      public Scene getEtapes() {
-		return etapesPrec;
-    	 
+		return etapesPrec; 
      }
      
      public void setEtapes (Scene uneScene) {
@@ -40,6 +59,6 @@ public abstract class Scene {
      }
      
      public String listEtapes() {
-    	 return null;
+    	 return libelle + "\n" + etapesPrec.getLibelle();
      }
 }
