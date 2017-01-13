@@ -4,16 +4,11 @@ import javax.swing.JPanel;
 
 import model.Scene;
 
-public class LissageExponentielDouble implements Module
+public class LissageExponentielDouble extends Module
 {
 	
 	@Override
 	public Scene transformer()
-	{
-		return null;
-	}
-	
-	public String getName()
 	{
 		return null;
 	}
