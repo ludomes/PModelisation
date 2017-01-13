@@ -14,6 +14,7 @@ public abstract class Scene {
 	
 	private Scene etapesPrec;
 	private String libelle;
+	private boolean visible = true;
 	
 	/*
 	 *  Renvoi les données
@@ -23,8 +24,7 @@ public abstract class Scene {
 
 	abstract public Double getValue();		
 	abstract public ArrayList<Point> getList();
-	
-	//
+
 	abstract public void setValue(Double value);
 	abstract public void setList(ArrayList<Point> p);
 	
@@ -36,6 +36,7 @@ public abstract class Scene {
     
     abstract public String toString();
     
+   
     /*
      * Getter Setter pour le libelle
      */
@@ -60,5 +61,29 @@ public abstract class Scene {
      
      public String listEtapes() {
     	 return libelle + "\n" + etapesPrec.getLibelle();
+     }
+     
+     /*
+      * Visibilité de la scène
+      */
+     public boolean estVisible (){
+    	 return visible;
+     }
+     
+     public void setVisible(boolean etat){
+    	 visible = etat;
+     }
+     
+     /*
+      * Equals
+      */
+     public boolean equals (Object o){
+    	 if (!(o instanceof Scene))
+    		 return false;
+    	 return equals ((Scene) o);
+     }
+     
+     public boolean equals (Scene uneScene){
+    	 return this.libelle == uneScene.libelle && this.getValue().equals(uneScene) && this.getList().equals(uneScene);
      }
 }
