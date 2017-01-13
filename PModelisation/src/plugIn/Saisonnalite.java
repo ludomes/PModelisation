@@ -1,5 +1,7 @@
 package plugIn;
 
+import javax.swing.JPanel;
+
 import model.Scene;
 
 public class Saisonnalite implements Module
@@ -13,6 +15,12 @@ public class Saisonnalite implements Module
 
 	public String getName()
 	{
+		return null;
+	}
+
+	@Override
+	public JPanel getPanel() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

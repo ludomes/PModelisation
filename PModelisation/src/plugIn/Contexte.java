@@ -1,14 +1,18 @@
 package plugIn;
 
-import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class Contexte
 {
-	ArrayList<Object> liste;
+	private Hashtable<String, Object> liste = new Hashtable<>();
 	
-	public void setParametre(Object obj)
+	public void setParametre(String nom, Object obj)
 	{
-		
+		liste.put(nom, obj);
 	}
 
+	public Object getParametre(String nom)
+	{
+		return liste.get(nom);
+	}
 }
