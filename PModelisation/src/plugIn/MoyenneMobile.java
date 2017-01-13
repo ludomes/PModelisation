@@ -2,7 +2,9 @@ package plugIn;
 
 import javax.swing.JPanel;
 
+import model.Point;
 import model.Scene;
+import model.Serie;
 
 public class MoyenneMobile extends Module
 {
@@ -10,6 +12,19 @@ public class MoyenneMobile extends Module
 	@Override
 	public Scene transformer()
 	{
+		Scene s = (Scene) contexte.getParametre("Scene");
+		if(s == null)	return s;
+		if(s.getValue() != null)	return null;
+		
+		Scene res = new Serie();
+		double[] coeff = (double[]) contexte.getParametre("Coeff");
+		int index = (int) contexte.getParametre("index");
+		
+		for(Point p : s.getList())
+		{
+			Point val = new Point();
+		}
+		
 		/*
 		  	set tableau resultat
 		  

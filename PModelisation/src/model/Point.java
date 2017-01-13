@@ -15,11 +15,11 @@ public class Point {
 	private String jour, mois, annee, heure, minute, seconde;
 	private Integer tempsRelative;
 	
-	Point () {
+	public Point () {
 		
 	}
 	
-	Point (Double valeur, String temps) {
+	public Point (Double valeur, String temps) {
 		this.valeur = valeur;
 		setDate(temps);
 	}

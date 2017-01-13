@@ -14,7 +14,6 @@ public class Moyenne extends Module
 	public Scene transformer()
 	{
 		Scene s = (Scene) contexte.getParametre("Scene");
-		
 		if(s == null)	return s;
 		if(s.getValue() == null)	return s;
 		
