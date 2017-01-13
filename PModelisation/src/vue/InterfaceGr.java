@@ -11,9 +11,14 @@ import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.demo.PieChartDemo1;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+
 public class InterfaceGr {
-	
-	private JTable tableau;
 
 	public InterfaceGr() {
 		
@@ -90,9 +95,6 @@ public class InterfaceGr {
 
 		// Ajout de la BARRE DE MENU au bon endroit
 		fenetre.setJMenuBar(menu);
-		
-		//Creation du TREEMODEL
-		//StandardAndPoors model = new StandardAndPoors();
 
 		// GROUPE ELEMENT DE GAUCHE
 		JPanel gauche = new JPanel(new GridLayout(0, 1));
@@ -122,72 +124,47 @@ public class InterfaceGr {
 		gauche.add(ch2);
 		group.add(ch3);
 		gauche.add(ch3);
-		
-		
-		//TEST DE JTREE
-		/*
-		DefaultMutableTreeNode racine1 =
-			       new DefaultMutableTreeNode("c’est la racine") ;
-			JTree monArbre1 = new JTree(racine1) ;
-			*/
-		
-		//REALISATION D'UN ARBRE
-		/*CheckBoxNode accessibilityOptions[] = {
-		        new CheckBoxNode(
-		            "Move system caret with focus/selection changes", false),
-		        new CheckBoxNode("Always expand alt text for images", true) };
-		    CheckBoxNode browsingOptions[] = {
-		        new CheckBoxNode("Notify when downloads complete", true),
-		        new CheckBoxNode("Disable script debugging", true),
-		        new CheckBoxNode("Use AutoComplete", true),
-		        new CheckBoxNode("Browse in a new process", false) };
-		    Vector accessVector = new NamedVector("Accessibility",
-		        browsingOptions);
-		    
-			//Creation de la JTREE
-			JTree arborescence = new JTree(accessVector);
-		    
-		
-		/*DefaultMutableTreeNode racine2 =
-			       new DefaultMutableTreeNode("Pere");
-			for(int i = 0; i < 3; ++i)
-			   racine2.add( new DefaultMutableTreeNode("Fils"+ i));
-			JTree monArbre2 = new JTree(racine2) ;
-			*/
-			//gauche.add(monArbre1);
-			//gauche.add(monArbre2);
-		    //gauche.add(arborescence);
 
 		// GROUPE ELEMENT DU CENTRE
 		JPanel center = new JPanel(new GridBagLayout());
 		center.setLayout(new BorderLayout());
 
-		Object[][] donnees = { { 2, 2 }, { 2, 2},
+		/*Object[][] donnees = { { 2, 2 }, { 2, 2},
 				{ 2, 2}, { 2, 2},
 				{ 2, 2}, { 2, 2},
 				{ 2, 2}, };
 
 		String[] entetes = { "Abcisses", "Ordonnées"};
 
-		tableau = new JTable(donnees, entetes);
+		JTable tableau = new JTable(donnees, entetes);*/
 
-		center.add(tableau.getTableHeader(), BorderLayout.NORTH);
-		center.add(tableau, BorderLayout.CENTER);
+		//center.add(tableau.getTableHeader(), BorderLayout.NORTH);
+		//center.add(tableau, BorderLayout.CENTER);
+		
+		JPanel pnl = new JPanel(new BorderLayout());
+		fenetre.setContentPane(pnl);
+		fenetre.setSize(400, 250);
+		
+		DefaultPieDataset pieDataset = new DefaultPieDataset();
+		pieDataset.setValue("Valeur1", new Integer(27));
+		pieDataset.setValue("Valeur2", new Integer(10));
+		pieDataset.setValue("Valeur3", new Integer(50));
+		pieDataset.setValue("Valeur4", new Integer(5));
 
-		JTree arbre = new JTree();
+		JFreeChart pieChart = ChartFactory.createPieChart("Test courbe",
+		pieDataset, true, true, true);
+		ChartPanel cPanel = new ChartPanel(pieChart);
+		pnl.add(cPanel);
+		
 
 		// Ajout des PANELS dans la fenetre
 		fenetre.getContentPane().add(gauche, BorderLayout.WEST);
-		fenetre.getContentPane().add(center, BorderLayout.CENTER);
+		//fenetre.getContentPane().add(center, BorderLayout.CENTER);
 		fenetre.getContentPane().add(laBarreDeFer, BorderLayout.NORTH);
 
 		// Formatage de la FENETRE
 		fenetre.pack();
 		fenetre.setVisible(true);
-	}
-	
-	public JTable getTable(){
-		return tableau;
 	}
 
 	public static void main(String[] args) {
