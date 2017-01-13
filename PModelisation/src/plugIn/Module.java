@@ -6,11 +6,13 @@ import model.Scene;
 
 public abstract class Module
 {
+	protected Contexte contexte = new Contexte();
+	
 	public abstract Scene transformer();
 	
 	public abstract JPanel getPanel();
 	
-	public String getName()
+	public final String getName()
 	{
 		return this.getName();
 	}

@@ -9,7 +9,6 @@ import model.Scene;
 
 public class Moyenne extends Module
 {
-	private Contexte contexte = new Contexte();
 	
 	@Override
 	public Scene transformer()
