@@ -4,16 +4,11 @@ import javax.swing.JPanel;
 
 import model.Scene;
 
-public class RegressionLineaire implements Module
+public class RegressionLineaire extends Module
 {
 	
 	@Override
 	public Scene transformer()
-	{
-		return null;
-	}
-	
-	public String getName()
 	{
 		return null;
 	}

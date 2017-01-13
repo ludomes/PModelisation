@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import model.Scene;
 
-public class MoyenneMobile implements Module
+public class MoyenneMobile extends Module
 {
 	
 	@Override
@@ -38,11 +38,6 @@ public class MoyenneMobile implements Module
 		return null;
 	}
 	
-	public String getName()
-	{
-		return null;
-	}
-
 	@Override
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub

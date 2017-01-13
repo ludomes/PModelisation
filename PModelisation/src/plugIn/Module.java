@@ -4,14 +4,14 @@ import javax.swing.JPanel;
 
 import model.Scene;
 
-public interface Module
+public abstract class Module
 {
-	public Scene transformer();
+	public abstract Scene transformer();
 	
-	public JPanel getPanel();
+	public abstract JPanel getPanel();
 	
-	public static String getName()
+	public String getName()
 	{
-		return "";
+		return this.getName();
 	}
 }

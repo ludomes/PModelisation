@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import model.Point;
 import model.Scene;
 
-public class Moyenne implements Module
+public class Moyenne extends Module
 {
 	private Contexte contexte = new Contexte();
 	
@@ -15,6 +15,7 @@ public class Moyenne implements Module
 	public Scene transformer()
 	{
 		Scene s = (Scene) contexte.getParametre("Scene");
+		
 		if(s == null)	return s;
 		if(s.getValue() == null)	return s;
 		
@@ -23,7 +24,7 @@ public class Moyenne implements Module
 		
 		for(Point p : l)
 		{
-			d += p.getValue();
+			d += p.getValeur();
 		}
 		
 		d /= l.size();
@@ -31,15 +32,10 @@ public class Moyenne implements Module
 		return new Value(d);
 	}
 	
-	public String getName()
-	{
-		return "Moyenne";
-	}
 
 	@Override
 	public JPanel getPanel()
 	{
-
 		return null;
 	}
 

@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import model.Scene;
 
-public class LissageExponentielSimple implements Module
+public class LissageExponentielSimple extends Module
 {
 	
 	@Override
@@ -12,12 +12,7 @@ public class LissageExponentielSimple implements Module
 	{
 		return null;
 	}
-
-	public String getName()
-	{
-		return null;
-	}
-
+	
 	@Override
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub
