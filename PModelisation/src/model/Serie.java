@@ -23,10 +23,11 @@ public class Serie extends Scene {
 	 * 		"date, libelle, valeur"
 	 * Exemple : 
 	 * 		"12:03; null; 1,243"
-	 */
+	 *
 	public Serie(String uneSerie) {
-		
+		tableauPoint = uneSerie.getList().clone();
 	}
+	 */
 
 	@Override
 	public boolean estVide()

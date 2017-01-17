@@ -15,6 +15,8 @@ public abstract class Scene {
 	private Scene etapesPrec;
 	private String libelle;
 	private boolean visible = true;
+	private int couleur;
+	private boolean aDessiner = true;
 	
 	/*
 	 *  Renvoi les données
@@ -85,5 +87,13 @@ public abstract class Scene {
      
      public boolean equals (Scene uneScene){
     	 return this.libelle == uneScene.libelle && this.getValue().equals(uneScene) && this.getList().equals(uneScene);
+     }
+     
+     /*
+      * Vision des courbes
+      */
+     
+     public boolean Dessiner () {
+    	 return aDessiner ;
      }
 }

@@ -19,9 +19,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import model.Scene;
+
 public class InterfBase {
 	
 	private JFrame fenetre;
+	private JPanel boutonScene;
 	
 	public double [][] test = {{5,7,3,9},{2, 6, 8, 4}};
 
@@ -104,36 +107,10 @@ public class InterfBase {
 		// Ajout de la BARRE DE MENU au bon endroit
 		fenetre.setJMenuBar(menu);
 
-		// GROUPE ELEMENT DE grilleDeBouton
-		JPanel grilleDeBouton = new JPanel(new GridLayout(1, 10));
-
-		// Creation du regroupement de BOUTON
-		ButtonGroup group = new ButtonGroup();
-
-		// Creation des BOUTONS
-		JButton scenario = new JButton("+");
-		scenario.setMnemonic(KeyEvent.VK_3);
-		scenario.setActionCommand("TADA !!");
-		
-		//Creation du PANEL pour la courbe au CENTRE
-		JPanel center = new JPanel(new GridLayout());
-		
-		//Ajout LISTENER pour le bouton "+"
-		scenario.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new AddCourbe().ajoutCourbe(fenetre, center, test);
-				fenetre.repaint();
-			}
-		});
-
-		// Ajout des BOUTONS
-		group.add(scenario);
-		grilleDeBouton.add(scenario);
 
 		// Ajout des PANELS dans la fenetre
-		fenetre.getContentPane().add(grilleDeBouton, BorderLayout.WEST);
+		boutonScene = new PanelScene();
+		fenetre.getContentPane().add(boutonScene, BorderLayout.WEST);
 		fenetre.getContentPane().add(center, BorderLayout.CENTER);
 	}
 	
@@ -141,5 +118,16 @@ public class InterfBase {
 	public void setVisible (boolean visible){
 		fenetre.pack();
 		fenetre.setVisible(visible);
+	}
+	
+	// Rafraichie la fenetre
+	public void rafraichir() {
+		fenetre.pack();
+		fenetre.repaint();
+	}
+	
+	// 
+	public void addCourbe (Scene uneScene) {
+		
 	}
 }

@@ -5,44 +5,46 @@ import java.util.ArrayList;
 public class Value extends Scene {
 	private Double valeur;
 	
-	public Value (double d){
+	public Value (double d, String libelle) {
 		valeur = new Double(d);
+		super.setLibelle(libelle);
+	}
+	
+	public Value (double d){
+		this (d, "");
 	}
 
 	@Override
 	public Double getValue() {
-		// TODO Auto-generated method stub
 		return valeur;
 	}
 
 	@Override
 	public ArrayList<Point> getList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void setValue(Double value) {
-		// TODO Auto-generated method stub
-		
+		valeur = value;		
 	}
 
 	@Override
 	public void setList(ArrayList<Point> p) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public boolean estVide() {
-		// TODO Auto-generated method stub
+		if (valeur == null)
+			return true;
 		return false;
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return valeur.toString();
 	}
 
 }
