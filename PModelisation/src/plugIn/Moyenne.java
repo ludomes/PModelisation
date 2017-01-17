@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import model.Point;
 import model.Scene;
+import model.Value;
 
 public class Moyenne extends Module
 {
@@ -18,7 +19,7 @@ public class Moyenne extends Module
 		if(s.getValue() == null)	return s;
 		
 		ArrayList<Point> l = new ArrayList<>();
-		double d;
+		double d = 0;
 		
 		for(Point p : l)
 		{

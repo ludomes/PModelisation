@@ -3,11 +3,16 @@ package model;
 import java.util.ArrayList;
 
 public class Value extends Scene {
+	private Double valeur;
+	
+	public Value (double d){
+		valeur = new Double(d);
+	}
 
 	@Override
 	public Double getValue() {
 		// TODO Auto-generated method stub
-		return null;
+		return valeur;
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ListScene {
 	private ArrayList<Scene> myListScene;
 	
-	ListScene () {
+	public ListScene () {
 		myListScene = new ArrayList<>();
 	}
 	

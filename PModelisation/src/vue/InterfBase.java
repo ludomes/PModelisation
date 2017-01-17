@@ -21,38 +21,51 @@ import javax.swing.JPanel;
 
 public class InterfBase {
 	
+	private JFrame fenetre;
 	
 	public double [][] test = {{5,7,3,9},{2, 6, 8, 4}};
 
 	public InterfBase() {
 		// Creation de la FENETRE
-		JFrame fenetre = new JFrame();
+		fenetre = new JFrame();
 		fenetre.setTitle("Projet de Modélisation");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fenetre.setPreferredSize(new Dimension(1280, 768));
 
 		// Creation du MENU
 		JMenuBar menu = new JMenuBar();
-		JMenu opt1 = new JMenu("Fichier");
+		JMenu opt1 = new JMenu("Scénario");
 		JMenu opt2 = new JMenu("Aide");
 		menu.add(opt1);
 		menu.add(opt2);
 
 		// Creation des elements dans le MENU
-		JMenuItem opt1cmd1 = new JMenuItem("Ouvrir");
-		JMenuItem opt1cmd2 = new JMenuItem("Enregistrer");
-		JMenuItem opt1cmd3 = new JMenuItem("Quitter");
+		JMenuItem opt1cmd1 = new JMenuItem("Nouveau");
+		JMenuItem opt1cmd2 = new JMenuItem("Ouvrir");
+		JMenuItem opt1cmd3 = new JMenuItem("Enregistrer");
+		JMenuItem opt1cmd4 = new JMenuItem("Quitter");
 		JMenuItem opt2cmd1 = new JMenuItem("A Propos");
 
 		opt1.add(opt1cmd1);
 		opt1.add(opt1cmd2);
 		opt1.add(opt1cmd3);
+		opt1.add(opt1cmd4);
 		opt2.add(opt2cmd1);
 
 		JFileChooser fc = new JFileChooser();
+		
+		// Ajout du LISTENER pour " NOUVEAU "
+		opt1cmd1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+				chooser.showOpenDialog(null);
+				System.out.println("Fichier séléctionné : " + chooser.getSelectedFile());
+			}
+		});
+		
 
 		// Ajout du LISTENER pour " OUVRIR "
-		opt1cmd1.addActionListener(new ActionListener() {
+		opt1cmd2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
 				chooser.showOpenDialog(null);
@@ -61,7 +74,7 @@ public class InterfBase {
 		});
 
 		// Ajout du LISTENER pour " ENREGISTRER " TO DO!
-		opt1cmd2.addActionListener(new ActionListener() {
+		opt1cmd3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int val_retour = fc.showSaveDialog(null);
 
@@ -82,7 +95,7 @@ public class InterfBase {
 		});
 
 		// Ajout du LISTENER pour " QUITTER "
-		opt1cmd3.addActionListener(new ActionListener() {
+		opt1cmd4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
@@ -122,15 +135,11 @@ public class InterfBase {
 		// Ajout des PANELS dans la fenetre
 		fenetre.getContentPane().add(grilleDeBouton, BorderLayout.WEST);
 		fenetre.getContentPane().add(center, BorderLayout.CENTER);
-
-		// Formatage de la FENETRE
+	}
+	
+	// Formatage de la FENETRE
+	public void setVisible (boolean visible){
 		fenetre.pack();
-		fenetre.setVisible(true);
+		fenetre.setVisible(visible);
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		new InterfBase();
-	}
-
 }
