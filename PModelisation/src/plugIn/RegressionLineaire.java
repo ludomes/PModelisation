@@ -1,7 +1,6 @@
 package plugIn;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -26,7 +25,11 @@ public class RegressionLineaire extends Module
 		if(s == null)	return s;
 		if(s.getList() == null)	return s;
 		
-		List<Point> liste = s.getList();
+		//duplication s
+		ArrayList<Point> listePoint = (ArrayList<Point>) s.getList().clone();
+		Serie serie = new Serie(listePoint, this.getName());
+		
+		ArrayList<Point> liste = serie.getList();
 		int n = liste.size();
 		
 		double a = 0;
@@ -49,25 +52,14 @@ public class RegressionLineaire extends Module
 		A = (a/n - (b*c)/(n*n))/(d/n - (b*b)/(n*n));
 		B = (a/n) - A*b/n;
 		
-		Serie serie = new Serie();
-		
-		ArrayList<Point> l = new ArrayList<>();
-		
 		for(int i = 0; i < n; i++)
 		{
 			
 			Point p = liste.get(i);
 			double v = A * p.getValeur() + B;
-			
-			
-			Point point = new Point(v, p.getDate());
-			point.setTempsRelative(p.getTempsRelative());
-			
-			l.add(point);
+
+			p.setValeur(v);			
 		}
-		
-		serie.setList(l);
-		
 		
 		return serie;
 	}

@@ -1,5 +1,7 @@
 package plugIn;
 
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 import model.Point;
@@ -12,33 +14,37 @@ public class LissageExponentielSimple extends Module
 	public Scene transformer()
 	{
 		double b = (double) contexte.getParametre("Beta");
-		int t = (int) contexte.getParametre("tour");
+		int t = (int) contexte.getParametre("Tour");
 		
 		Scene s = (Scene) contexte.getParametre("Scene");
 		if(s == null)	return s;
 		if(s.getList() == null)	return s;
 		
 		//duplication s
-		Serie serie = new Serie();
+		ArrayList<Point> listePoint = (ArrayList<Point>) s.getList().clone();
+		Serie serie = new Serie(listePoint, this.getName());
 		
-		int T = serie.getList().size();
+		
+		ArrayList<Point> liste = serie.getList();
+		int T = liste.size();
+		
+		int pas = liste.get(1).getTempsRelative() - liste.get(0).getTempsRelative();
+		
 		for(int i = 0; i < t; i ++)
 		{
 			double value = 0;
 			
 			for(int j = 0; j < T + i - 1; j++)
 			{
-				//value += (b**j) * serie.getList().get(T + i - j).getValeur();
+				value += Math.pow(b, j) * liste.get(T + i - j).getValeur();
 			}
 			
 			double prediction = (1 - b) * value;
 			
-			String date = serie.getList().get(T + i - 1).getDate(); //intervealle entre chaque valeur
+			Point p = new Point(prediction, null);
+			p.setTempsRelative(liste.get(T + i - 1).getTempsRelative() + pas);
 			
-			Point p = new Point(prediction, date);
-			p.setTempsRelative(0);
-			
-			serie.getList().add(p);
+			liste.add(p);
 		}
 	
 		
@@ -46,9 +52,11 @@ public class LissageExponentielSimple extends Module
 	}
 	
 	@Override
-	public JPanel getPanel() {
-		// TODO Auto-generated method stub
-		return null;
+	public JPanel getPanel()
+	{	
+		String[] s = {"Beta", "Tour", "Scene"};
+		
+		return this.setPanel(s);
 	}
 
 }

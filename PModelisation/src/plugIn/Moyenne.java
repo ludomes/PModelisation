@@ -16,19 +16,20 @@ public class Moyenne extends Module
 	{
 		Scene s = (Scene) contexte.getParametre("Scene");
 		if(s == null)	return s;
-		if(s.getValue() == null)	return s;
+		if(s.getList() == null)	return s;
 		
-		ArrayList<Point> l = new ArrayList<>();
+		ArrayList<Point> liste = s.getList();
+		
 		double d = 0;
 		
-		for(Point p : l)
+		for(Point p : liste)
 		{
 			d += p.getValeur();
 		}
 		
-		d /= l.size();
+		d /= liste.size();
 		
-		return new Value(d);
+		return new Value(d, this.getName());
 	}
 	
 

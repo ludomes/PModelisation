@@ -22,7 +22,6 @@ public abstract class Module
 		return this.getName();
 	}
 	
-	
 	protected JPanel setPanel(String[] parametres)
 	{
 		JPanel panel = new JPanel();
