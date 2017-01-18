@@ -30,7 +30,7 @@ public class PanelScene extends JPanel{
 		return grilleDeBouton;
 	}
 	
-	private void dessiner () {
+	public void dessiner () {
 		// Creation du regroupement de BOUTON
 		ButtonGroup group = new ButtonGroup();
 
@@ -44,7 +44,7 @@ public class PanelScene extends JPanel{
 		grilleDeBouton.add(scenario);
 	}
 	
-	public JPanel getPanel () {
+	public JPanel getJPanel () {
 		this.dessiner();
 		return grilleDeBouton ;
 	}

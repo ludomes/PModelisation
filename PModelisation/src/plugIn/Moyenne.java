@@ -10,32 +10,37 @@ import model.Value;
 
 public class Moyenne extends Module
 {
+	public Moyenne(Scene scene)
+	{
+		super(scene);
+	}
 	
 	@Override
 	public Scene transformer()
 	{
 		Scene s = (Scene) contexte.getParametre("Scene");
 		if(s == null)	return s;
-		if(s.getValue() == null)	return s;
+		if(s.getList() == null)	return s;
 		
-		ArrayList<Point> l = new ArrayList<>();
+		ArrayList<Point> liste = s.getList();
+		
 		double d = 0;
 		
-		for(Point p : l)
+		for(Point p : liste)
 		{
 			d += p.getValeur();
 		}
 		
-		d /= l.size();
+		d /= liste.size();
 		
-		return new Value(d);
+		return new Value(d, this.getName());
 	}
 	
-
 	@Override
 	public JPanel getPanel()
 	{
-		return null;
+		String[] s = null;
+		
+		return this.setPanel(s);
 	}
-
 }

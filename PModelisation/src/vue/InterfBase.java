@@ -107,11 +107,15 @@ public class InterfBase {
 		// Ajout de la BARRE DE MENU au bon endroit
 		fenetre.setJMenuBar(menu);
 
-
+		//Creation du PANEL pour la courbe au CENTRE
+		JPanel center = new JPanel(new GridLayout());
+		
 		// Ajout des PANELS dans la fenetre
-		boutonScene = new PanelScene();
-		fenetre.getContentPane().add(boutonScene, BorderLayout.WEST);
+		boutonScene = new PanelScene(null);
+		
+		fenetre.getContentPane().add(((PanelScene) boutonScene).getJPanel(), BorderLayout.WEST);
 		fenetre.getContentPane().add(center, BorderLayout.CENTER);
+		
 	}
 	
 	// Formatage de la FENETRE
