@@ -13,9 +13,9 @@ public class RegressionLineaire extends Module
 	
 	public RegressionLineaire(){}
 	
-	public RegressionLineaire(Serie s)
+	public RegressionLineaire(Serie scene)
 	{
-		contexte.setParametre("Serie", s);
+		super(scene);
 	}
 	
 	@Override
@@ -67,7 +67,7 @@ public class RegressionLineaire extends Module
 	@Override
 	public JPanel getPanel()
 	{
-		String[] s = {"Scene"};
+		String[] s = null;
 		
 		return this.setPanel(s);
 	}

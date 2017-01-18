@@ -10,6 +10,10 @@ import model.Value;
 
 public class Moyenne extends Module
 {
+	public Moyenne(Scene scene)
+	{
+		super(scene);
+	}
 	
 	@Override
 	public Scene transformer()
@@ -32,11 +36,11 @@ public class Moyenne extends Module
 		return new Value(d, this.getName());
 	}
 	
-
 	@Override
 	public JPanel getPanel()
 	{
-		return null;
+		String[] s = null;
+		
+		return this.setPanel(s);
 	}
-
 }

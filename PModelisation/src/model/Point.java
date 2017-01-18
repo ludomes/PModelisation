@@ -27,8 +27,8 @@ public class Point {
 	public void setTempsRelative (int unTempsRelative) {
 		this.tempsRelative = unTempsRelative;
 	}
-	
-	public void setValeur (double uneValeur) {
+
+	public void setValeur (Double uneValeur) {
 		this.valeur = uneValeur;
 	}
 	

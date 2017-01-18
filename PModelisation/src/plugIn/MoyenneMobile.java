@@ -1,5 +1,7 @@
 package plugIn;
 
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 import model.Point;
@@ -8,21 +10,31 @@ import model.Serie;
 
 public class MoyenneMobile extends Module
 {
+	public MoyenneMobile(Scene scene)
+	{
+		super(scene);
+	}
 	
 	@Override
 	public Scene transformer()
 	{
+		int index = (int) contexte.getParametre("Index");
+		double[] coeff = (double[])	contexte.getParametre("Coeff");
+		
 		Scene s = (Scene) contexte.getParametre("Scene");
 		if(s == null)	return s;
-		if(s.getValue() != null)	return null;
+		if(s.getList() == null)	return null;
 		
-		Scene res = new Serie();
-		double[] coeff = (double[]) contexte.getParametre("Coeff");
-		int index = (int) contexte.getParametre("index");
+		//duplication s
+		ArrayList<Point> listePoint = (ArrayList<Point>) s.getList().clone();
+		Serie serie = new Serie(listePoint, this.getName());
 		
-		for(Point p : s.getList())
+		ArrayList<Point> liste = serie.getList();
+		int size = liste.size();
+		
+		for(int i = 0; i < size; i++)
 		{
-			Point val = new Point();
+			if(i < index) liste.get(i).setValeur(null);
 		}
 		
 		/*
@@ -54,9 +66,11 @@ public class MoyenneMobile extends Module
 	}
 	
 	@Override
-	public JPanel getPanel() {
-		// TODO Auto-generated method stub
-		return null;
+	public JPanel getPanel()
+	{
+		String[] s = {"Index", "Coeff"};
+		
+		return this.setPanel(s);
 	}
 
 }

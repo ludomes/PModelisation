@@ -13,6 +13,13 @@ public abstract class Module
 {
 	protected Contexte contexte = new Contexte();
 	
+	protected Module(){}
+	
+	protected Module(Scene scene)
+	{
+		contexte.setParametre("Scene", scene);
+	}
+	
 	public abstract Scene transformer();
 	
 	public abstract JPanel getPanel();

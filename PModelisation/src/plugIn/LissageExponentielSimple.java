@@ -10,6 +10,11 @@ import model.Serie;
 
 public class LissageExponentielSimple extends Module
 {
+	public LissageExponentielSimple(Scene scene)
+	{
+		super(scene);
+	}
+	
 	@Override
 	public Scene transformer()
 	{
@@ -54,7 +59,7 @@ public class LissageExponentielSimple extends Module
 	@Override
 	public JPanel getPanel()
 	{	
-		String[] s = {"Beta", "Tour", "Scene"};
+		String[] s = {"Beta", "Tour"};
 		
 		return this.setPanel(s);
 	}
