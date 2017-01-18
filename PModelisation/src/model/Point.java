@@ -12,7 +12,7 @@ package model;
 
 public class Point {
 	private Double valeur;
-	private String jour, mois, annee, heure, minute, seconde;
+	private Integer jour, mois, annee, heure, minute, seconde;
 	private Integer tempsRelative;
 	
 	public Point () {
@@ -24,6 +24,13 @@ public class Point {
 		setDate(temps);
 	}
 	
+	public Point (double valeur, int annee, int mois, int tempsRelative){
+		this.valeur = new Double (valeur);
+		this.annee = new Integer (annee);
+		this.mois = new Integer (mois);
+		this.tempsRelative = new Integer (tempsRelative);
+	}
+	
 	public void setTempsRelative (int unTempsRelative) {
 		this.tempsRelative = unTempsRelative;
 	}
@@ -33,6 +40,7 @@ public class Point {
 	}
 	
 	public void setDate (String uneDate) {
+	 
 		String temp1, temp2;
 		
 		if (! uneDate.isEmpty()) {
@@ -42,16 +50,17 @@ public class Point {
 			
 			
 			String tempD [] = temp1.split("-");
-			jour = tempD[0];
-			mois = tempD[1];
-			annee = tempD[2];
+			jour = (new Integer(tempD[0])).intValue();
+			mois = (new Integer(tempD[1])).intValue();
+			annee = (new Integer(tempD[2])).intValue();
 			
 			String tempH [] = temp2.split(":");
-			heure = tempH[0];
-			minute = tempH[1];
-			seconde = tempH[2];
+			heure = (new Integer(tempH[0])).intValue();
+			minute = (new Integer(tempH[1])).intValue();
+			seconde = (new Integer(tempH[2])).intValue();
 		}
 	}
+	
 	
 	public String getDate () {
 		return jour + "-" + mois + "-" + annee + " " + heure + ":" + minute + ":" + seconde;

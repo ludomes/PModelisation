@@ -28,7 +28,16 @@ public class Serie extends Scene {
 		tableauPoint = uneSerie.getList().clone();
 	}
 	 */
-
+	
+	public void addPoint (double valeur, int annee, int mois, int tempsRelative) {
+		Point unPoint = new Point (valeur, annee, mois, tempsRelative);
+		this.tableauPoint.add(unPoint);
+	}
+	
+	public int size (){
+		return tableauPoint.size();
+	}
+	
 	@Override
 	public boolean estVide()
 	{
