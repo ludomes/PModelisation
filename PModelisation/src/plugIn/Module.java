@@ -1,6 +1,8 @@
 package plugIn;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,6 +14,10 @@ import model.Scene;
 public abstract class Module
 {
 	protected Contexte contexte = new Contexte();
+	protected JPanel panel = null;
+	private JTextField[] fields = null;
+	private boolean validation = false;
+	private boolean annulation = false;
 	
 	protected Module(){}
 	
@@ -24,6 +30,32 @@ public abstract class Module
 	
 	public abstract JPanel getPanel();
 	
+	public boolean executer()
+	{
+		while(!validation && !annulation)
+		{
+			Thread.yield();
+			
+			if(validation)
+			{
+				for(int i = 0; i < fields.length; i ++)
+				{
+					double x = 0;
+					
+					try {
+						x = Double.parseDouble(fields[i].getText()) ;
+					} catch (Exception e) {
+						System.out.println();
+						validation = annulation = false;
+					}
+					contexte.setParametre(fields[i].getName(), x);
+				}
+			}
+		}
+		
+		return validation;
+	}
+	
 	public final String getName()
 	{
 		return this.getName();
@@ -31,26 +63,47 @@ public abstract class Module
 	
 	protected JPanel setPanel(String[] parametres)
 	{
-		JPanel panel = new JPanel();
-		
-		GridLayout lay = new GridLayout(2, parametres.length + 1);
-		
-		for(int i = 0; i < parametres.length - 1; i++)
+		if(panel == null)
 		{
-			lay.addLayoutComponent(parametres[i], new JLabel(parametres[i]));
-			lay.addLayoutComponent(parametres[i], new JTextField(parametres[i]));
+			panel = new JPanel();
+			fields = new JTextField[parametres.length];
+			
+			
+			GridLayout lay = new GridLayout(2, parametres.length + 1);
+			
+			
+			for(int i = 0; i < parametres.length; i++)
+			{
+				lay.addLayoutComponent(parametres[i], new JLabel(parametres[i]));
+				
+				fields[i] = new JTextField(parametres[i]);
+				lay.addLayoutComponent(parametres[i], fields[i]);
+			}
+
+			
+			JButton valider = new JButton("Valider");
+			valider.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					validation = true;
+				}
+			});
+			
+			JButton annuler = new JButton("Annuler");
+			annuler.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					annulation = true;
+				}
+			});
+			
+			lay.addLayoutComponent("Valider", valider);
+			lay.addLayoutComponent("Annuler", annuler);
+			
+			panel.setLayout(lay);
 		}
-		
-		JButton valider = new JButton("Valider");
-		//Ajout Action Listener;
-		
-		JButton annuler = new JButton("Annuler");
-		//Ajout Action Listener;
-		
-		lay.addLayoutComponent("Valider", valider);
-		lay.addLayoutComponent("Annuler", annuler);
-		
-		panel.setLayout(lay);
 		
 		return panel;
 	}

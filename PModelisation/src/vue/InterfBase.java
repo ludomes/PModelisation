@@ -26,9 +26,6 @@ public class InterfBase {
 	private JFrame fenetre;
 	private JPanel boutonScene;
 	
-	private JPanel center;
-	private PanelScene btsc;
-	
 	public double [][] test = {{5,7,3,9},{2, 6, 8, 4}};
 
 	public InterfBase() {
