@@ -26,6 +26,9 @@ public class InterfBase {
 	private JFrame fenetre;
 	private JPanel boutonScene;
 	
+	private JPanel center;
+	private PanelScene btsc;
+	
 	public double [][] test = {{5,7,3,9},{2, 6, 8, 4}};
 
 	public InterfBase() {
@@ -109,7 +112,7 @@ public class InterfBase {
 
 
 		// Ajout des PANELS dans la fenetre
-		boutonScene = new PanelScene();
+		btsc = new PanelScene(null);
 		fenetre.getContentPane().add(boutonScene, BorderLayout.WEST);
 		fenetre.getContentPane().add(center, BorderLayout.CENTER);
 	}
