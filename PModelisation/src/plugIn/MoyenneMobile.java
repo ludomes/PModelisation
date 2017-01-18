@@ -22,6 +22,8 @@ public class MoyenneMobile extends Module
 		
 		for(Point p : s.getList())
 		{
+			
+			
 			Point val = new Point();
 		}
 		
