@@ -19,16 +19,21 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import model.Scene;
+import model.*;
 
 public class InterfBase {
 	
 	private JFrame fenetre;
 	private JPanel boutonScene;
 	
-	public double [][] test = {{5,7,3,9},{2, 6, 8, 4}};
+	public double [][] test;
 
-	public InterfBase() {
+	public InterfBase(ListScene uneListScene) {
+		//remplie test
+		test = ((Serie)uneListScene.getScene(0)).exportArray();
+		System.out.println ("Le Tableau");
+		System.out.println (test[0][1]);
+		
 		// Creation de la FENETRE
 		fenetre = new JFrame();
 		fenetre.setTitle("Projet de Modélisation");
