@@ -27,8 +27,5 @@ public class ListScene {
 	
 	public int size() {
 		return myListScene.size();
-	}
-	
-	
-	
+	}	
 }

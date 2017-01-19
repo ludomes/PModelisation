@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,9 +11,11 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.DefaultXYDataset;
 
+import model.Scene;
+
 public class AddCourbe {
 
-	public void ajoutCourbe(JFrame fenetre, JPanel center, double[][] tableau) {
+	public void ajoutCourbe(JFrame fenetre, JPanel center, double [][] tableau) {
 		center.setLayout(new BorderLayout());
 		fenetre.setContentPane(center);
 		//fenetre.setSize(400, 250);

@@ -39,6 +39,16 @@ public class PanelScene extends JPanel{
 		scenario.setMnemonic(KeyEvent.VK_3);
 		scenario.setActionCommand("TADA !!");
 		
+		//TEST
+		/*scenario.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new AddCourbe().ajoutCourbe(fenetre, center, tableau);
+				
+			}
+		});*/
+		
 		// Ajout des BOUTONS
 		group.add(scenario);
 		grilleDeBouton.add(scenario);
