@@ -118,8 +118,12 @@ public class InterfBase {
 		// Ajout des PANELS dans la fenetre
 		boutonScene = new PanelScene(null);
 		
+		//Ajout de la courbe
+		AddCourbe courbe = new AddCourbe();
+		courbe.ajoutCourbe(fenetre, center, test);
+		
 		fenetre.getContentPane().add(((PanelScene) boutonScene).getJPanel(), BorderLayout.WEST);
-		fenetre.getContentPane().add(center, BorderLayout.CENTER);
+		//fenetre.getContentPane().add(center, BorderLayout.CENTER);
 		
 	}
 	

@@ -21,20 +21,19 @@ public class AddCourbe {
 		//fenetre.setSize(400, 250);
 		// Creation du GRAPHE
 		DefaultXYDataset graph = new DefaultXYDataset();
-
+		graph.addSeries("Premier graphique", tableau);
 		// Initialisation du graphe
-		JFreeChart chart = ChartFactory.createXYLineChart("NICHT", "Temps", "Indice", null);
+		JFreeChart chart = ChartFactory.createXYLineChart("Nom transformation", "Temps", "Indice", null);
 		// Creation du chartpanel pour la courbe
 		ChartPanel pose = new ChartPanel(chart);
 		// Integration du chartpanel dans le panel
 		center.add(pose);
-		graph.addSeries("Premier graphique", tableau);
 
 		//Initialisation du graphe
-				JFreeChart chart1 = ChartFactory.createXYLineChart("Nom de la transformation","Temps", "Indice", graph);
+				/*JFreeChart chart1 = ChartFactory.createXYLineChart("Nom de la transformation","Temps", "Indice", graph);
 				//Creation du chartpanel pour la courbe
 				ChartPanel pose1 = new ChartPanel(chart1);
 				//Integration du chartpanel dans le panel
-				center.add(pose1);
+				center.add(pose1);*/
 	}
 }
