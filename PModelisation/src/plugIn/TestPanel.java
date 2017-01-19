@@ -1,37 +1,42 @@
 package plugIn;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.FileReader;
 import java.io.IOException;
+
+import javax.swing.JFrame;
 
 import com.opencsv.CSVReader;
 
 import model.Scene;
 import model.Serie;
 
-public class TestMath
-{
+public class TestPanel {
+
 	public static void main(String[] args)
 	{
 		Module m = null;
 		
 		try
 		{
-			m = new Moyenne(addData());
+			m = new LissageExponentielSimple(addData());
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		Scene s = m.transformer();
-		
-		System.out.println(s);
-		
-		System.out.println(s.getLibelle());
+		JFrame f = new JFrame();
+		//fenetre.getContentPane().add(((PanelScene) boutonScene).getJPanel(), BorderLayout.WEST);
+		f.setPreferredSize(new Dimension(500, 500));
+		f.getContentPane().add(m.getPanel(), BorderLayout.WEST);
+		f.pack();
+		f.repaint();
+		f.setVisible(true);
+
 	}
-	
-	
+
 	private static Scene addData() throws IOException {
 		Scene uneScene;
 		CSVReader reader = new CSVReader(new FileReader(System.getProperty("user.dir" ) + "/Data/Valeurs.csv"));

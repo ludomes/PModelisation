@@ -24,12 +24,16 @@ public class Moyenne extends Module
 		
 		ArrayList<Point> liste = s.getList();
 		
+		System.out.println("TestMoyenne");
+		
 		double d = 0;
 		
 		for(Point p : liste)
 		{
 			d += p.getValeur();
 		}
+		
+		System.out.println("TestMoyenne");
 		
 		d /= liste.size();
 		
