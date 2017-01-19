@@ -17,7 +17,7 @@ public class GestionnaireDeModule
 		Class module = null;
 		
 		try {
-			module = classloader.loadClass(path);
+			module = classloader.loadClass("plugIn");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
