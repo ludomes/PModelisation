@@ -32,7 +32,8 @@ public class InterfBase {
 		//remplie test
 		test = ((Serie)uneListScene.getScene(0)).exportArray();
 		System.out.println ("Le Tableau");
-		System.out.println (test[0][1]);
+		for (int i = 0; i<test[0].length; i++)
+			System.out.println (test[0][i] + "-" + test[1][i]);
 		
 		// Creation de la FENETRE
 		fenetre = new JFrame();

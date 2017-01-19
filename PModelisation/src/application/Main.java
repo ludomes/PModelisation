@@ -51,6 +51,7 @@ public class Main {
 			mois = (new Integer(nextLine[1])).intValue();
 			
 			((Serie) uneScene).addPoint(valeur, annee, mois, index);
+			index++;
         }
 		System.out.println (((Serie) uneScene).size());
 		System.out.println (uneScene.getList().toString());
