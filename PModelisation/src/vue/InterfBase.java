@@ -26,13 +26,11 @@ public class InterfBase {
 	private JFrame fenetre;
 	private JPanel boutonScene;
 	
-	//MODIF PR LE TEST
-	public double [][] test = {{344, 555, 666},{234, 543, 566}};
+	public double [][] test;
 
 	public InterfBase(ListScene uneListScene) {
 		//remplie test
-		//MODIF PR LE TEST
-		//test = ((Serie)uneListScene.getScene(0)).exportArray();
+		test = ((Serie)uneListScene.getScene(0)).exportArray();
 		System.out.println ("Le Tableau");
 		System.out.println (test[0][1]);
 		
