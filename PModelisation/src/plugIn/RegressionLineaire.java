@@ -26,6 +26,7 @@ public class RegressionLineaire extends Module
 		if(s.getList() == null)	return s;
 		
 		//duplication s
+		@SuppressWarnings("unchecked")
 		ArrayList<Point> listePoint = (ArrayList<Point>) s.getList().clone();
 		Serie serie = new Serie(listePoint, this.getName());
 		

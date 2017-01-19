@@ -1,6 +1,5 @@
 package application;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -15,10 +14,11 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		ListScene myListScene = new ListScene();
-		InterfBase myInterfBase = new InterfBase();
+		
 		//System.out.println (System.getProperty("user.dir" ));
 		myListScene.addScene(addData());
 		
+		InterfBase myInterfBase = new InterfBase(myListScene);
 		myInterfBase.setVisible(true);
 
 	}

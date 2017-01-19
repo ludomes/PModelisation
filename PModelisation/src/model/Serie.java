@@ -38,6 +38,16 @@ public class Serie extends Scene {
 		return tableauPoint.size();
 	}
 	
+	public double [][] exportArray () {
+		double [][] temp = new double [this.tableauPoint.size()][2];
+		
+		for (int i = 0; i < this.tableauPoint.size(); i++) {
+			temp[i][0] = this.tableauPoint.get(i).getTempsRelative();
+			temp[i][1] = this.tableauPoint.get(i).getValeur();
+		}
+		return temp;
+	}
+	
 	@Override
 	public boolean estVide()
 	{
