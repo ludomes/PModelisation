@@ -1,5 +1,6 @@
 package plugIn;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,9 +57,11 @@ public abstract class Module
 		return validation;
 	}
 	
-	public final String getName()
+	public String getName()
 	{
-		return this.getName();
+		String s = this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.') + 1);
+		
+		return s;
 	}
 	
 	protected JPanel setPanel(String[] parametres)
@@ -66,20 +69,22 @@ public abstract class Module
 		if(panel == null)
 		{
 			panel = new JPanel();
-			fields = new JTextField[parametres.length];
+			panel.setPreferredSize(new Dimension(200, 500));
 			
+			fields = new JTextField[parametres.length];
 			
 			GridLayout lay = new GridLayout(2, parametres.length + 1);
 			
-			
 			for(int i = 0; i < parametres.length; i++)
 			{
-				lay.addLayoutComponent(parametres[i], new JLabel(parametres[i]));
+				JLabel j = new JLabel(parametres[i]);
+				j.setPreferredSize(new Dimension(100, 75));
+				lay.addLayoutComponent(parametres[i], j);
 				
 				fields[i] = new JTextField(parametres[i]);
+				fields[i].setPreferredSize(new Dimension(100, 75));
 				lay.addLayoutComponent(parametres[i], fields[i]);
 			}
-
 			
 			JButton valider = new JButton("Valider");
 			valider.addActionListener(new ActionListener()
