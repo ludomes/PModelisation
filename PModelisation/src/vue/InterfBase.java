@@ -26,15 +26,8 @@ public class InterfBase {
 	private JFrame fenetre;
 	private JPanel boutonScene;
 	
-	public double [][] test;
-
 	public InterfBase(ListScene uneListScene) {
-		//remplie test
-		test = ((Serie)uneListScene.getScene(0)).exportArray();
-		System.out.println ("Le Tableau");
-		for (int i = 0; i<test[0].length; i++)
-			System.out.println (test[0][i] + "-" + test[1][i]);
-		
+				
 		// Creation de la FENETRE
 		fenetre = new JFrame();
 		fenetre.setTitle("Projet de Modélisation");
@@ -121,7 +114,7 @@ public class InterfBase {
 		
 		//Ajout de la courbe
 		AddCourbe courbe = new AddCourbe();
-		courbe.ajoutCourbe(fenetre, center, test);
+		courbe.ajoutCourbe(fenetre, center, uneListScene);
 		
 		fenetre.getContentPane().add(((PanelScene) boutonScene).getJPanel(), BorderLayout.WEST);
 		//fenetre.getContentPane().add(center, BorderLayout.CENTER);

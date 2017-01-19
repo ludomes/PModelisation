@@ -6,6 +6,7 @@ import java.io.IOException;
 import com.opencsv.CSVReader;
 
 import model.*;
+import plugIn.LissageExponentielSimple;
 import vue.InterfBase;
 
 public class Main {
@@ -18,8 +19,13 @@ public class Main {
 		//System.out.println (System.getProperty("user.dir" ));
 		myListScene.addScene(addData());
 		
+		LissageExponentielSimple tranf = new LissageExponentielSimple (myListScene.getScene(0));
+		tranf.setParamTest();
+		myListScene.addScene(tranf.transformer());
+		
 		InterfBase myInterfBase = new InterfBase(myListScene);
 		myInterfBase.setVisible(true);
+
 
 	}
 	

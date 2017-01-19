@@ -18,7 +18,7 @@ public class LissageExponentielSimple extends Module
 	public void setParamTest()
 	{
 		this.contexte.setParametre("Beta", 0.7);
-		this.contexte.setParametre("Tour", 10);
+		this.contexte.setParametre("Tour", 150);
 	}
 	
 	public void getValues()
