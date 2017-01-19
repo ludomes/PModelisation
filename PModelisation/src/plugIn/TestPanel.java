@@ -12,35 +12,35 @@ public class TestPanel {
 
 	public static void main(String[] args)
 	{
-		LissageExponentielSimple m = null;
+		MoyenneMobile m = null;
 		Scene scene = null;
 		
 		try
 		{
 			scene = addData();
-			m = new LissageExponentielSimple(scene);
+			m = new MoyenneMobile(scene);
 		}
 		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
 		
-		m.setParamTest();
-		m.getValues();
+		m.setDefautValeur();
+		//m.getValues();
+		
+		for(int i = 0; i < 10; i++)
+		{
+			System.out.println(scene.getList().get(i).getValeur());
+		}
 		
 		Scene s = m.transformer();
-		
-		for(int i = 0; i < 851; i++)
-		{
-			System.out.println(scene.getList().get(i).getTempsRelative());
-		}
-		
-		for(int i = 851; i < 861; i++)
+		for(int i = 0; i < scene.getList().size(); i++)
 		{
 			System.out.println(s.getList().get(i).getValeur());
-			System.out.println(s.getList().get(i).getTempsRelative());
-			System.out.println();
 		}
+
+		
+
 
 	}
 
@@ -64,6 +64,7 @@ public class TestPanel {
 			mois = (new Integer(nextLine[1])).intValue();
 			
 			((Serie) uneScene).addPoint(valeur, annee, mois, index);
+			index++;
         }
 		//System.out.println (((Serie) uneScene).size());
 		//System.out.println (uneScene.getList().toString());

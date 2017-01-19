@@ -15,6 +15,14 @@ public class MoyenneMobile extends Module
 		super(scene);
 	}
 	
+	public void setDefautValeur()
+	{
+		contexte.setParametre("Index", 6);
+		
+		double[] d = {0.1, 0.25, 0.5, 0.75, 0.9, 1, 0.9, 0.75, 0.5, 0.25, 0.1};
+		contexte.setParametre("Coeff", d);
+	}
+	
 	@Override
 	public Scene transformer()
 	{
@@ -24,6 +32,10 @@ public class MoyenneMobile extends Module
 		Scene s = (Scene) contexte.getParametre("Scene");
 		if(s == null)	return s;
 		if(s.getList() == null)	return null;
+		
+		
+		System.out.println(s);
+		
 		
 		//duplication s
 		@SuppressWarnings("unchecked")
@@ -38,16 +50,19 @@ public class MoyenneMobile extends Module
 		
 		for(int i = 0; i < size; i++)
 		{
-			if(i < index) liste.get(i).setValeur(null);
+			if(i < index - 1) liste.get(i).setValeur(null);
 			else if(i + coeff.length > size) liste.get(i).setValeur(null);
 			else if(liste.get(i) == null);
 			else
 			{
 				double d = 0;
 				
-				for(int j = 0; i < coeff.length; j++)
+				for(int j = 0; j < coeff.length; j++)
 				{
-					d += coeff[j]*liste.get(i+ j).getValeur();
+					System.out.println("test i = " + i + " , j = " + j);
+					
+					
+					d += coeff[j]*s.getList().get(i + j).getValeur();
 				}
 				
 				d /= somme;
