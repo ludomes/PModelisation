@@ -50,19 +50,16 @@ public class MoyenneMobile extends Module
 		
 		for(int i = 0; i < size; i++)
 		{
-			if(i < index - 1) liste.get(i).setValeur(null);
-			else if(i + coeff.length > size) liste.get(i).setValeur(null);
+			if(i < index - 1) liste.get(i).setValeur(new Double(-1));
+			else if(i + coeff.length > size) liste.get(i).setValeur(new Double(-1));
 			else if(liste.get(i) == null);
 			else
 			{
 				double d = 0;
 				
 				for(int j = 0; j < coeff.length; j++)
-				{
-					System.out.println("test i = " + i + " , j = " + j);
-					
-					
-					d += coeff[j]*s.getList().get(i + j).getValeur();
+				{	
+					d += coeff[j]*s.getList().get(i + j - coeff.length + index).getValeur();
 				}
 				
 				d /= somme;

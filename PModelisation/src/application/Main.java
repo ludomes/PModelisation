@@ -5,8 +5,11 @@ import java.io.IOException;
 
 import com.opencsv.CSVReader;
 
-import model.*;
+import model.ListScene;
+import model.Scene;
+import model.Serie;
 import plugIn.LissageExponentielSimple;
+import plugIn.MoyenneMobile;
 import vue.InterfBase;
 
 public class Main {
@@ -19,8 +22,12 @@ public class Main {
 		//System.out.println (System.getProperty("user.dir" ));
 		myListScene.addScene(addData());
 		
-		LissageExponentielSimple tranf = new LissageExponentielSimple (myListScene.getScene(0));
+		/*LissageExponentielSimple tranf = new LissageExponentielSimple (myListScene.getScene(0));
 		tranf.setParamTest();
+		myListScene.addScene(tranf.transformer());*/
+		
+		MoyenneMobile tranf = new MoyenneMobile (myListScene.getScene(0));
+		tranf.setDefautValeur();
 		myListScene.addScene(tranf.transformer());
 		
 		InterfBase myInterfBase = new InterfBase(myListScene);
