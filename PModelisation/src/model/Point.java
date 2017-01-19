@@ -43,7 +43,7 @@ public class Point {
 	 
 		String temp1, temp2;
 		
-		if (! uneDate.isEmpty()) {
+		if (uneDate != null && !uneDate.isEmpty()) {
 			String tempS [] = uneDate.split(" ");
 			temp1 = tempS[0];
 			temp2 = tempS[1];

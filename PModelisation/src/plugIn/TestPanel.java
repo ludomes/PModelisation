@@ -1,11 +1,7 @@
 package plugIn;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.io.FileReader;
 import java.io.IOException;
-
-import javax.swing.JFrame;
 
 import com.opencsv.CSVReader;
 
@@ -16,24 +12,35 @@ public class TestPanel {
 
 	public static void main(String[] args)
 	{
-		Module m = null;
+		LissageExponentielSimple m = null;
+		Scene scene = null;
 		
 		try
 		{
-			m = new LissageExponentielSimple(addData());
+			scene = addData();
+			m = new LissageExponentielSimple(scene);
 		}
 		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
 		
-		JFrame f = new JFrame();
-		//fenetre.getContentPane().add(((PanelScene) boutonScene).getJPanel(), BorderLayout.WEST);
-		f.setPreferredSize(new Dimension(500, 500));
-		f.getContentPane().add(m.getPanel(), BorderLayout.WEST);
-		f.pack();
-		f.repaint();
-		f.setVisible(true);
+		m.setParamTest();
+		m.getValues();
+		
+		Scene s = m.transformer();
+		
+		for(int i = 0; i < 851; i++)
+		{
+			System.out.println(scene.getList().get(i).getTempsRelative());
+		}
+		
+		for(int i = 851; i < 861; i++)
+		{
+			System.out.println(s.getList().get(i).getValeur());
+			System.out.println(s.getList().get(i).getTempsRelative());
+			System.out.println();
+		}
 
 	}
 

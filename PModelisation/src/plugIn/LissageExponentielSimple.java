@@ -15,6 +15,18 @@ public class LissageExponentielSimple extends Module
 		super(scene);
 	}
 	
+	public void setParamTest()
+	{
+		this.contexte.setParametre("Beta", 0.7);
+		this.contexte.setParametre("Tour", 10);
+	}
+	
+	public void getValues()
+	{
+		System.out.println(contexte.getParametre("Beta"));
+		System.out.println(contexte.getParametre("Tour"));
+	}
+	
 	@Override
 	public Scene transformer()
 	{
@@ -36,15 +48,17 @@ public class LissageExponentielSimple extends Module
 		
 		int pas = liste.get(1).getTempsRelative() - liste.get(0).getTempsRelative();
 		
+		System.out.println(pas);
+		
 		for(int i = 0; i < t; i ++)
 		{
 			double value = 0;
 			
-			for(int j = 0; j < T + i - 1; j++)
-			{
-				value += Math.pow(b, j) * liste.get(T + i - j).getValeur();
+			for(int j = 0; j < T + i; j++)
+			{			
+				value += Math.pow(b, j) * liste.get(T + i - j -1).getValeur();				
 			}
-			
+
 			double prediction = (1 - b) * value;
 			
 			Point p = new Point(prediction, null);
