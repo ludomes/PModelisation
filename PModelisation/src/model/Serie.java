@@ -39,11 +39,11 @@ public class Serie extends Scene {
 	}
 	
 	public double [][] exportArray () {
-		double [][] temp = new double [this.tableauPoint.size()][2];
+		double [][] temp = new double [2][this.tableauPoint.size()];
 		
 		for (int i = 0; i < this.tableauPoint.size(); i++) {
-			temp[i][0] = this.tableauPoint.get(i).getTempsRelative();
-			temp[i][1] = this.tableauPoint.get(i).getValeur();
+			temp[0][i] = this.tableauPoint.get(i).getTempsRelative();
+			temp[1][i] = this.tableauPoint.get(i).getValeur();
 		}
 		return temp;
 	}
